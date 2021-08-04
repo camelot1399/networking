@@ -1,0 +1,24 @@
+{
+  "name": "networking",
+  "version": "1.0.0",
+  "description": "git: https://github.com/camelot1399/networking",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camelot1399/networking.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/camelot1399/networking/issues"
+  },
+  "homepage": "https://github.com/camelot1399/networking#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security"
+  }
+}

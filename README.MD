@@ -19,6 +19,6 @@ front: localhost:8082;
 
 Starting a project:
 
-start server (./server/): node server/server.js
+start server (./server/): nodemon server.js
 
 start front (./front/): npm run serve

@@ -1,12 +1,19 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <navHeader />
     <router-view />
   </div>
 </template>
+
+<script>
+import navHeader from './components/nav/navHeaderComponent.vue';
+
+export default {
+  components: {
+    navHeader
+  }
+}
+</script>
 
 <style>
 #app {

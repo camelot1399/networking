@@ -4,6 +4,7 @@ node_modules
 /front/networking/node_modules
 /front/networking/.gitignore
 /front/networking/dist
+/database
 
 /server/node_modules
 /server/.gitignore

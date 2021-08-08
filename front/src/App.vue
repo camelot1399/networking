@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <navHeader />
+    <sidebar />
     <router-view />
   </div>
 </template>
 
 <script>
-import navHeader from './components/nav/navHeaderComponent.vue';
+import sidebar from './components/nav/sidebar.vue';
 
 export default {
   components: {
-    navHeader
+    sidebar
   }
 }
 </script>

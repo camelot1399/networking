@@ -5,10 +5,10 @@
 </template>
 <script>
 export default {
-    name: "navHeader",
+    name: "sidebar",
     data() {
         return {
-            title: 'Навигация на сайте'
+            title: 'Навигация на сайте sidebar'
         }
     },
 }

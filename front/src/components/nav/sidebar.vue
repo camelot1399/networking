@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="sidebar">
         {{ title }}
     </div>
 </template>
@@ -13,3 +13,8 @@ export default {
     },
 }
 </script>
+<style>
+.sidebar {
+    background: green;
+}
+</style>

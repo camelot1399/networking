@@ -23,7 +23,8 @@ export default {
             title: 'Hosts list',
             hosts: [
                 {ip: '10.0.0.1', mac: '00:11:aa:ss:dd:cc'},
-                {ip: '10.0.0.1', mac: '00:11:aa:ss:dd:c1'}
+                {ip: '10.0.0.1', mac: '00:11:aa:ss:dd:c1'},
+                {ip: '10.0.0.1', mac: '00:11:aa:ss:dd:c2'}
             ]
         }
     },

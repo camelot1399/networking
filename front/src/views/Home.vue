@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import TestServer from '../components/TestServerComponent.vue';
+import TestServer from '@/components/TestServerComponent.vue';
 import HostsList from '@/components/hosts/list.vue';
 
 export default {

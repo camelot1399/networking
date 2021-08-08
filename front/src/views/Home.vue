@@ -2,11 +2,14 @@
   <div class="home">
     <TestServer />
     <button @click="testHosts">test hosts</button>
+
+    <HostsList />
   </div>
 </template>
 
 <script>
 import TestServer from '../components/TestServerComponent.vue';
+import HostsList from '@/components/hosts/list.vue';
 
 export default {
   name: "Home",
@@ -16,7 +19,8 @@ export default {
     }
   },
   components: {
-    TestServer
+    TestServer,
+    HostsList
   },
   methods: {
     testHosts() {
@@ -28,3 +32,9 @@ export default {
   
 };
 </script>
+<style>
+.home {
+  background: yellow;
+  width: 100%;
+}
+</style>

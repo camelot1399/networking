@@ -1,14 +1,17 @@
 version: "3.5"
 services:
     networking-mysql:
-        image: mysql:5.7.22
+        image: mysql:8.0.21
         container_name: networking-mysql
         working_dir: /application
         volumes:
-            - ./database:/var/lib/mysql/
+            - networking-mysql:/var/lib/mysql/
         environment:
-            MYSQL_ROOT_PASSWORD: TDH765DKSH99FHDK5JUJ
+            MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: networking_db
             MYSQL_USER: root
         ports:
             - "2330:3306"
+volumes:
+    networking-mysql:
+        driver: "local"

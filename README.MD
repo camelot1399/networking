@@ -19,6 +19,12 @@ front: localhost:8082;
 
 Starting a project:
 
+create BD:
+(./) npm run mysql
+
+
+./npm i
 start server (./server/): nodemon server.js
 
+./front/npm i
 start front (./front/): npm run serve

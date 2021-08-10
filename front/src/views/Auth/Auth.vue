@@ -2,9 +2,9 @@
     <div class="auth">
         <h1>{{ title }}</h1>
         <form action="#" class="authForm">
-            <input type="text" name="login" placeholder="login" required maxlength="20" autofocus>
-            <input type="password" name="password" placeholder="password" required maxlength="50">
-            <button type="submit">Войти</button>
+            <input v-model="login" type="text" name="login" placeholder="login" required maxlength="20" autofocus>
+            <input v-model="password" type="password" name="password" placeholder="password" required maxlength="50">
+            <button v-if="validate" @click.prevent="checkForm" type="submit">Войти</button>
         </form>
     </div>
 </template>
@@ -12,7 +12,27 @@
 export default {
     data() {
         return {
-            title: 'Вход в NETWORKING'
+            title: 'Вход в NETWORKING',
+            login: '',
+            password: '',
+            validate: false
+        }
+    },
+    methods: {
+        checkForm() {
+            console.log('checkForm');
+        },
+        checkLoginAndPassword() {
+            if (this.login && this.password) return this.validate = true;
+            return this.validate = false;
+        }
+    },
+    watch: {
+        login: function() {
+            this.checkLoginAndPassword();
+        },
+        password: function() {
+            this.checkLoginAndPassword();
         }
     }
 }

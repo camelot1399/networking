@@ -1,14 +1,54 @@
 <template>
-    <div>
-        {{ title }}
+    <div class="auth">
+        <h1>{{ title }}</h1>
+        <form action="#" class="authForm">
+            <input type="text" name="login" placeholder="login" required maxlength="20" autofocus>
+            <input type="password" name="password" placeholder="password" required maxlength="50">
+            <button type="submit">Войти</button>
+        </form>
     </div>
 </template>
 <script>
 export default {
     data() {
         return {
-            title: 'Авторизация'
+            title: 'Вход в NETWORKING'
         }
     }
 }
 </script>
+<style>
+.auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+}
+.authForm {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    max-width: 700px;
+}
+input[name="login"],
+input[name="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+button[type="submit"] {
+    padding: 10px;
+    background: #ffdd2d;
+    opacity: 0.6;
+    border: none;
+    border-radius: 6px;
+    transition: opacity 0.6s;
+}
+
+button[type="submit"]:hover {
+    opacity: 1
+}
+
+</style>

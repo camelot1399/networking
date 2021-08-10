@@ -24,7 +24,7 @@ create BD:
 
 
 ./npm i
-start server (./server/): nodemon server.js
+start server (./server): nodemon index.js
 
 ./front/npm i
 start front (./front/): npm run serve

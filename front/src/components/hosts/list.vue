@@ -21,13 +21,21 @@ export default {
     data() {
         return {
             title: 'Hosts list',
-            hosts: [
-                {ip: '10.0.0.1', mac: '00:11:aa:ss:dd:cc'},
-                {ip: '10.0.0.1', mac: '00:11:aa:ss:dd:c1'},
-                {ip: '10.0.0.1', mac: '00:11:aa:ss:dd:c2'}
-            ]
+            hosts: []
         }
     },
+    methods: {
+        async getHosts() {
+            console.log('getHosts');
+            let hosts = await fetch('/api/getHosts');
+            let result = await hosts.json();
+
+            this.hosts = result;
+        }
+    },
+    mounted() {
+        this.getHosts();
+    }
 }
 </script>
 <style>

@@ -1,6 +1,6 @@
 <template>
-    <li>
-        {{ host.ip }}, {{ host.mac }}
+    <li class="host_li">
+        <span>{{ host.ip }}</span> <span>{{ host.mac }}</span>
     </li>
 </template>
 <script>
@@ -10,3 +10,8 @@ export default {
     }
 }
 </script>
+<style>
+.host_li {
+    margin-top: 5px;
+}
+</style>

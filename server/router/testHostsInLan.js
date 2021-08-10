@@ -3,7 +3,7 @@ const cp = require('child_process');
 const fs = require('fs');
 
 const router = express.Router();
-let mysql = require('mysql');
+let mysql = require('mysql2');
 let config = require('../db/config/networking_db_config');
 
 router.get('/', (req, res) => {
@@ -44,9 +44,9 @@ router.get('/', (req, res) => {
         // асинхронное чтение
         fs.readFile(file, "utf8", function(error,data){
             if(error) throw error;
-            
+
             let dataJSON = [];
-            let result = data.replace(/[(,),at,on,?]/g,"").trim();
+            let result = data.replace(/[(,)\at\on\[?]/gm,"").trim();
             let Object = stringToJSON(result, dataJSON);
 
             addToMysql(Object);
@@ -61,8 +61,8 @@ router.get('/', (req, res) => {
             let macAddress = string.substr(0, string.indexOf(" "))
             
             let tmp = {
-            ip: ip,
-            mac: macAddress
+                ip: ip,
+                mac: macAddress
             }
         
             string = string.substr(string.indexOf("\n")).trim();
@@ -118,14 +118,19 @@ router.get('/', (req, res) => {
         let conn2 = mysql.createConnection(config);
 
         console.log('mac false, заливаю в бд');
-        let query2 = `INSERT INTO hosts (ip, mac) VALUES (?, ?)`;
-        conn2.query(query2, [el.ip, el.mac], (err2, result2) => {
-            if (err2) {
-                console.log(`error: ${err2}`);
-            } else {
-                console.log(`ip: ${el.ip}, mac: ${el.mac} успешно загружен в BD`);
-            }
-        });
+        
+        try {
+            let query2 = `INSERT INTO hosts (ip, mac) VALUES (?, ?)`;
+            conn2.query(query2, [el.ip, el.mac], (err2, result2) => {
+                if (err2) {
+                    console.log(`error: ${err2}`);
+                } else {
+                    console.log(`ip: ${el.ip}, mac: ${el.mac} успешно загружен в BD`);
+                }
+            });
+        } catch(e) {
+            throw e;
+        }
 
         conn2.end(err => {
             if (err) {

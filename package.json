@@ -4,7 +4,7 @@
   "description": "git: https://github.com/camelot1399/networking",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server",
     "mysql": "docker exec -it networking-mysql mysql -u root -p -e \"$(cat ./docker/mysql/DDL.sql)\""
   },
   "repository": {
@@ -20,7 +20,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "fs": "^0.0.1-security",
-    "mysql": "^2.18.1",
+    "mysql2": "^2.3.0",
     "nodemon": "^2.0.12",
     "path": "^0.12.7",
     "router": "^1.3.5"

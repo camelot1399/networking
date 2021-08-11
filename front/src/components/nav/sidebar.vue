@@ -1,6 +1,7 @@
 <template>
     <div class="sidebar">
         {{ title }}
+        <button @click="removeUser">Выйти</button>
     </div>
 </template>
 <script>
@@ -11,6 +12,12 @@ export default {
             title: 'Навигация на сайте sidebar'
         }
     },
+    methods: {
+        removeUser() {
+            localStorage.removeItem('user');
+            this.$router.push('/auth');
+        }
+    }
 }
 </script>
 <style>

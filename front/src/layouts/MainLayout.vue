@@ -12,6 +12,14 @@ export default {
   name: 'main-layout',
   components: {
       sidebar
+  },
+  methods: {
+    checkUser() {
+      if (!localStorage.getItem('user')) return this.$router.push('/auth');
+    }
+  },
+  mounted() {
+    this.checkUser();
   }
 }
 </script>

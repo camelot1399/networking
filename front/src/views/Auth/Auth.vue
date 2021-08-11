@@ -3,7 +3,7 @@
         <h1>{{ title }}</h1>
         <form action="#" class="authForm">
             <input v-model="login" type="text" name="login" placeholder="login" required maxlength="20" autofocus>
-            <input v-model="password" type="password" name="password" placeholder="password" required maxlength="50">
+            <input v-model="password" v-if="passwordShow" type="password" name="password" placeholder="password" required maxlength="50">
             <button v-if="validate" @click.prevent="checkForm" type="submit">Войти</button>
         </form>
     </div>
@@ -15,14 +15,45 @@ export default {
             title: 'Вход в NETWORKING',
             login: '',
             password: '',
+            passwordShow: false,
             validate: false
         }
     },
     methods: {
-        checkForm() {
-            console.log('checkForm');
+        async checkForm() {
+            let data = {
+                login: this.login,
+                password: this.password
+            };
+
+            let options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data),
+            };
+
+            try {
+                let resp = await fetch('/api/auth', options);
+                let result = await resp.json();
+
+                if (result.status === true) {
+                    localStorage.setItem('user', result.sessionData);
+                    this.$router.push('/');
+                }
+
+            } catch (error) {
+                console.log(`ошибка: ${error}`);
+            }
+
+            
+
+            // let result = await fetch.json();
         },
         checkLoginAndPassword() {
+            if (this.login.length > 0) this.passwordShow = true;
+            if (this.login.length === 0) this.passwordShow = false;
             if (this.login && this.password) return this.validate = true;
             return this.validate = false;
         }
